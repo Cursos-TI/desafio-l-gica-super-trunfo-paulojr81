@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Definição da estrutura Carta
 typedef struct {
     char estado[50];
     char codigoDaCarta[20];
