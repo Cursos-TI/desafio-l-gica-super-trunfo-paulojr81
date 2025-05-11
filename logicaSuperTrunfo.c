@@ -1,43 +1,40 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+// Definição da estrutura Carta
+typedef struct {
+    char estado[50];
+    char codigoDaCarta[20];
+    char nomeDaCidade[50];
+    int populacao;
+    float area;
+    float pib;
+} Carta;
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+// Definindo variáveis do tipo Carta
+// Inicializando as variáveis com valores de exemplo
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    Carta carta1 = {"São Paulo", "SP123", "São Paulo", 12300000, 1500.5, 500000}; 
+    Carta carta2 = {"Rio de Janeiro", "RJ456", "Rio de Janeiro", 6000000, 1200.3, 300000};
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    float DensPop1 = carta1.populacao / carta1.area;
+    float DensPop2 = carta2.populacao / carta2.area;
+    float PibPerCap1 = carta1.pib / carta1.populacao;
+    float PibPerCap2 = carta2.pib / carta2.populacao;
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+// Comparando a densidade populacional entre São Paulo e Rio de Janeiro
+    printf ("Comprando o PIB per capita entre Sao Paulo e Rio de Janeiro:\n");
+    printf ("PIB per capita de Sao Paulo: %.2f \n", PibPerCap1);
+    printf ("PIB per capita de Rio de Janieiro: %.2f \n", PibPerCap2);
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
-
+// Estrutura de controle de fluxo condicional.
+    if (PibPerCap1 > PibPerCap2){ 
+        printf ("Sao Paulo tem um PIB per capita maior que o Rio de Janeiro. \n");
+    } else if (PibPerCap1 < PibPerCap2){
+        printf ("Rio de Janeiro tem um PIB per capita maior que Sao Paulo. \n");
+    } else {
+        printf ("Os PIBs per capita de Sao Paulo e Rio de Janeiro sao iguais. \n");
+    }
     return 0;
 }
